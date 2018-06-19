@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require(__DIR__ . '/../config.php');
+require('../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
 
-admin_externalpage_setup('usestandardemoji');
+admin_externalpage_setup('resetemoticons');
 
 $confirm = optional_param('confirm', false, PARAM_BOOL);
 $event = optional_param('id', 's', PARAM_RAW);
@@ -36,16 +36,75 @@ if($event == 's') {
 } else {
   $eventstr = 'usefancy';
 }
+
+
+    /**
+     * Helper method preparing the stdClass with the emoticon properties
+     *
+     * @param string|array $text or array of strings
+     * @param string $imagename to be used by {@link pix_emoticon}
+     * @param string $altidentifier alternative string identifier, null for no alt
+     * @param string $altcomponent where the alternative string is defined
+     * @param string $imagecomponent to be used by {@link pix_emoticon}
+     * @return stdClass
+     */
+     function prepare_emoticon_object($text, $imagename, $altidentifier = null,
+                                               $altcomponent = 'core_pix', $imagecomponent = 'local_emoji') {
+        return (object)array(
+            'text'           => $text,
+            'imagename'      => $imagename,
+            'imagecomponent' => $imagecomponent,
+            'altidentifier'  => $altidentifier,
+            'altcomponent'   => $altcomponent,
+        );
+    }
+
+ function default_emoticons($e) {
+    return array(
+        prepare_emoticon_object(":-)", $e.'/smiley', 'smiley'),
+        prepare_emoticon_object(":)", $e.'/smiley', 'smiley'),
+        prepare_emoticon_object(":-D", $e.'/biggrin', 'biggrin'),
+        prepare_emoticon_object(";-)", $e.'/wink', 'wink'),
+        prepare_emoticon_object(":-/", $e.'/mixed', 'mixed'),
+        prepare_emoticon_object("V-.", $e.'/thoughtful', 'thoughtful'),
+        prepare_emoticon_object(":-P", $e.'/tongueout', 'tongueout'),
+        prepare_emoticon_object(":-p", $e.'/tongueout', 'tongueout'),
+        prepare_emoticon_object("B-)", $e.'/cool', 'cool'),
+        prepare_emoticon_object("^-)", $e.'/approve', 'approve'),
+        prepare_emoticon_object("8-)", $e.'/wideeyes', 'wideeyes'),
+        prepare_emoticon_object(":o)", $e.'/clown', 'clown'),
+        prepare_emoticon_object(":-(", $e.'/sad', 'sad'),
+        prepare_emoticon_object(":(", $e.'/sad', 'sad'),
+        prepare_emoticon_object("8-.", $e.'/shy', 'shy'),
+        prepare_emoticon_object(":-I", $e.'/blush', 'blush'),
+        prepare_emoticon_object(":-X", $e.'/kiss', 'kiss'),
+        prepare_emoticon_object("8-o", $e.'/surprise', 'surprise'),
+        prepare_emoticon_object("P-|", $e.'/blackeye', 'blackeye'),
+        prepare_emoticon_object("8-[", $e.'/angry', 'angry'),
+        prepare_emoticon_object("(grr)", $e.'/angry', 'angry'),
+        prepare_emoticon_object("xx-P", $e.'/dead', 'dead'),
+        prepare_emoticon_object("|-.", $e.'/sleepy', 'sleepy'),
+        prepare_emoticon_object("}-]", $e.'/evil', 'evil'),
+        prepare_emoticon_object("(h)", $e.'/heart', 'heart'),
+        prepare_emoticon_object("(heart)", $e.'/heart', 'heart'),
+        prepare_emoticon_object("(y)", $e.'/yes', 'yes', 'core'),
+        prepare_emoticon_object("(n)", $e.'/no', 'no', 'core'),
+        prepare_emoticon_object("(martin)", $e.'/martin', 'martin'),
+        prepare_emoticon_object("( )", $e.'/egg', 'egg'),
+    );
+}
+
+
 if (!$confirm or !confirm_sesskey()) {
     echo $OUTPUT->header();
     echo $OUTPUT->heading(get_string('confirmation', 'admin'));
-    echo $OUTPUT->confirm(get_string($eventstr, 'admin'),
+    echo $OUTPUT->confirm(get_string($eventstr, 'local_emoji'),
         new moodle_url($PAGE->url, array('confirm' => 1)),
         new moodle_url('/admin/settings.php', array('section' => 'local_emoji')));
     echo $OUTPUT->footer();
     die();
 }
 
-$manager = get_emoticon_manager();
-set_config('emoticons', $manager->encode_stored_config($manager->default_emoticons()));
+//$manager = get_emoticon_manager();
+set_config('emoticons', json_encode(default_emoticons($event)));
 redirect(new moodle_url('/admin/settings.php', array('section' => 'local_emoji')));
