@@ -28,5 +28,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$plugin->component = 'local_emoji';
 $plugin->version  = 2018061900;
 $plugin->requires = 2010102700;  // Requires this Moodle version
