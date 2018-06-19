@@ -46,7 +46,7 @@ if ( $hassiteconfig ){
             'emoji_apikey',
             
             // This is the friendly title for the config, which will be displayed
-            'External API: Key',
+            'Test',
             
             // This is helper text for this config field
             'This is the key used to access the External API',
