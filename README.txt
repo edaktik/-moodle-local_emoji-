@@ -11,7 +11,7 @@ This project has been imlementen on the Moodle DevCamp 2018
 Andreas Grähn (andreas.graehn@edu-werkstatt.de)
 Amr Hourani (amr.hourani@id.ethz.ch)
 Andreas Hruska (andreas.hruska@edaktik.at)
-Loca Bösch (luca.boesch@bfh.ch)
+Luca Bösch (luca.boesch@bfh.ch)
 
 Installation
 ------------
