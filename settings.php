@@ -45,7 +45,7 @@ if ( $hassiteconfig ){
     $standardlink .= '<br />';
     
     foreach($images as $value){
-        $standardlink .= '<img src="'.new moodle_url('/local/emoji/s/'.$value.'.svg').'"> ';
+        $standardlink .= '<img width="15" height="15" src="'.new moodle_url('/local/emoji/pix/s/'.$value.'.svg').'"> ';
     }
             
             
@@ -58,7 +58,7 @@ if ( $hassiteconfig ){
     $fancylink.= '<br />';
     
     foreach($images as $value){
-        $fancylink.= '<img src="'.new moodle_url('/local/emoji/f/'.$value.'.svg').'"> ';
+        $fancylink.= '<img width="15" height="15" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
     }
     
     
