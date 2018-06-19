@@ -24,7 +24,7 @@
  * @author     Andreas Grähn (andreas.graehn@edu-werkstatt.de)
  * @author     Amr Hourani (amr.hourani@id.ethz.ch)
  * @author     Andreas Hruska (andreas.hruska@edaktik.at)
- * @author     Loca Bösch (luca.boesch@bfh.ch)
+ * @author     Luca Bösch (luca.boesch@bfh.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
