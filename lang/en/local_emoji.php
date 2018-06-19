@@ -20,7 +20,11 @@
  *
  * @package    local
  * @subpackage emoji
- * @copyright  2018 Moodle DACH
+ * @copyright  Moodle DevCamp 2018 {@link https://www.moodle-dach.eu}
+ * @author     Andreas Grähn (andreas.graehn@edu-werkstatt.de)
+ * @author     Amr Hourani (amr.hourani@id.ethz.ch)
+ * @author     Andreas Hruska (andreas.hruska@edaktik.at)
+ * @author     Loca Bösch (luca.boesch@bfh.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
