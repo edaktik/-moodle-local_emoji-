@@ -16,13 +16,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Local plugin providing a custom set of emoticons for Moodle
- *
- * The images in /pix folder are public domain, see README.txt for more info
+ * Default alternative texts for Emoji emoticon images
  *
  * @package    local
  * @subpackage emoji
- * @copyright  2018 Moodle DACH 2018
+ * @copyright  Moodle DevCamp 2018 {@link https://www.moodle-dach.eu}
+ * @author     Andreas Grähn (andreas.graehn@edu-werkstatt.de)
+ * @author     Amr Hourani (amr.hourani@id.ethz.ch)
+ * @author     Andreas Hruska (andreas.hruska@edaktik.at)
+ * @author     Loca Bösch (luca.boesch@bfh.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
