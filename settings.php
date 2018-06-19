@@ -32,15 +32,24 @@ defined('MOODLE_INTERNAL') || die();
 if ( $hassiteconfig ){
     
     // Create the new settings page
-    // - in a local plugin this is not defined as standard, so normal $settings->methods will throw an error as
-    // $settings will be NULL
-    $settings = new admin_settingpage( 'local_emoji',  new lang_string('emojis', 'local_emoji'));
+    $settings = new admin_settingpage( 'local_emoji', 'Emoji' );
+    
+    $standardlink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
+    
+    $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandard', 'local_emoji'), $standardlink));
+    
+    
+    $fancylink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=f').'">'.new lang_string('usefancy', 'local_emoji').'</a>';
+    
+    $settings->add(new admin_setting_heading('usefancy', new lang_string('usefancy', 'local_emoji'), $fancylink));
+    
+    $resetlink = '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'admin').'</a>';
+    
+    $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'admin'), $resetlink));
+    
+
+    $ADMIN->add('appearance', $settings);
     
     // Create
     $ADMIN->add( 'localplugins', $settings );
-    
-    $ADMIN->add(new admin_setting_emoticons());
-    $ADMIN->add('appearance', new admin_externalpage('resetemoticons', new lang_string('emoticonsreset', 'admin'),
-            new moodle_url('/admin/resetemoticons.php'), 'moodle/site:config', true));
-  
 }
