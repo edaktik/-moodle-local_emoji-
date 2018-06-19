@@ -34,29 +34,13 @@ if ( $hassiteconfig ){
     // Create the new settings page
     // - in a local plugin this is not defined as standard, so normal $settings->methods will throw an error as
     // $settings will be NULL
-    $settings = new admin_settingpage( 'local_emoji', 'Your Settings Page Title' );
+    $settings = new admin_settingpage( 'local_emoji',  new lang_string('emojis', 'local_emoji'));
     
     // Create
     $ADMIN->add( 'localplugins', $settings );
     
-    // Add a setting field to the settings for this page
-    $settings->add( new admin_setting_configtext(
-            
-            // This is the reference you will use to your configuration
-            'emoji_apikey',
-            
-            // This is the friendly title for the config, which will be displayed
-            'Test',
-            
-            // This is helper text for this config field
-            'This is the key used to access the External API',
-            
-            // This is the default value
-            'No Key Defined',
-            
-            // This is the type of Parameter this config is
-            PARAM_TEXT
-            
-            ) );
-    
+    $ADMIN->add(new admin_setting_emoticons());
+    $ADMIN->add('appearance', new admin_externalpage('resetemoticons', new lang_string('emoticonsreset', 'admin'),
+            new moodle_url('/admin/resetemoticons.php'), 'moodle/site:config', true));
+  
 }
