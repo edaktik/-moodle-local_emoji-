@@ -30,7 +30,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['pluginname'] = 'Emoji';
 $string['usestandard'] = 'Use Standard Emojis';
 $string['usefancy'] = 'Use Fancy Emojis';
-$string['sick'] = 'sick';
-$string['unhappy'] = 'unhappy';
