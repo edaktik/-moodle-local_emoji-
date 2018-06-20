@@ -71,7 +71,7 @@ if ( $hassiteconfig ){
 	$resetlink = '';
 	
 	foreach($images as $value){
-        $resetlink .= '<img width="15" height="15" src="'.new moodle_url('/pix/s/'.$value.'.gif').'"> ';
+        $resetlink .= '<img width="32" height="32" src="'.new moodle_url('/pix/s/'.$value.'.gif').'"> ';
     }
 	
 	$resetlink .= '<br />';
