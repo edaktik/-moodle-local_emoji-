@@ -29,7 +29,8 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-require_once('../../config.php');
+require_once('../config.php');
+
 // Ensure the configurations for this site are set.
 if ( $hassiteconfig ){
 
@@ -48,7 +49,7 @@ if ( $hassiteconfig ){
 
 	$standardlink .= '<br />';
 	
-    $standardlink .= '<di<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
+    $standardlink .= '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
 
     $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandardhead', 'local_emoji'), $standardlink));
     
