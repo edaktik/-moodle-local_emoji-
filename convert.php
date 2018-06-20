@@ -99,7 +99,7 @@ if (!$confirm or !confirm_sesskey()) {
     echo $OUTPUT->header();
     echo $OUTPUT->heading(get_string('confirmation', 'admin'));
     echo $OUTPUT->confirm(get_string($eventstr, 'local_emoji'),
-        new moodle_url($PAGE->url, array('confirm' => 1)),
+            new moodle_url(new moodle_url('/local/emoji/convert.php'), array('confirm' => 1, 'id' => $event)),
         new moodle_url('/admin/settings.php', array('section' => 'local_emoji')));
     echo $OUTPUT->footer();
     die();
