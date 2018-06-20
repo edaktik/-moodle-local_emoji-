@@ -35,6 +35,9 @@ if ( $hassiteconfig ){
 
     // Create the new settings page.
     $settings = new admin_settingpage( 'local_emoji', 'Emoji' );
+    
+    // Introductory explanation that all the settings are defaults for the local_emoji.
+    $settings->add(new admin_setting_heading('localemojiintro', '', get_string('localemojiintro', 'local_emoji')));
 	  
 	// standard svg
 	
