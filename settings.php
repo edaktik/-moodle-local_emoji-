@@ -56,7 +56,7 @@ if ( $hassiteconfig ){
         $fancylink = '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
     }
 	
-	$fancylink. = '<br />';
+	$fancylink .= '<br />';
 	
     $fancylink .= '<a href="'.new moodle_url('/local/emoji/convert.php?id=f').'">'.new lang_string('usefancy', 'local_emoji').'</a>';
  
