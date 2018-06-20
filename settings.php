@@ -29,7 +29,6 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-require_once('../config.php');
 
 // Ensure the configurations for this site are set.
 if ( $hassiteconfig ){
