@@ -40,8 +40,10 @@ if ( $hassiteconfig ){
     
 	// standard svg
 	
+	$standardlink = '';
+	
 	foreach($images as $value){
-        $standardlink = '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/s/'.$value.'.svg').'"> ';
+        $standardlink .= '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/s/'.$value.'.svg').'"> ';
     }
 
 	$standardlink .= '<br />';
@@ -51,9 +53,11 @@ if ( $hassiteconfig ){
     $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandardhead', 'local_emoji'), $standardlink));
     
 	// fancy svg
+
+	$fancylink = '';
 	
 	foreach($images as $value){
-        $fancylink = '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
+        $fancylink .= '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
     }
 	
 	$fancylink .= '<br />';
@@ -63,9 +67,18 @@ if ( $hassiteconfig ){
     $settings->add(new admin_setting_heading('usefancy', new lang_string('usefancyhead', 'local_emoji'), $fancylink));
     
 	// reset to defaults
-    $resetlink = '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'local_emoji').'</a>';
 
-    $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'admin'), $resetlink));
+	$resetlink = '';
+	
+	foreach($images as $value){
+        $resetlink .= '<img width="15" height="15" src="'.new moodle_url('/pix/s/'.$value.'.gif').'"> ';
+    }
+	
+	$resetlink .= '<br />';
+	
+    $resetlink .= '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'admin').'</a>';
+
+    $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'local_emoji'), $resetlink));
 
     // Create.
     $ADMIN->add( 'localplugins', $settings );
