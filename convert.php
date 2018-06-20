@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,9 +17,13 @@
 /**
  * Resets the emoticons mapping into the default value
  *
- * @package   core
- * @copyright 2010 David Mudrak <david@moodle.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    local_emoji
+ * @copyright  Moodle DevCamp 2018 {@link https://www.moodle-dach.eu}
+ * @author     Andreas Grähn (andreas.graehn@edu-werkstatt.de)
+ * @author     Amr Hourani (amr.hourani@id.ethz.ch)
+ * @author     Andreas Hruska (andreas.hruska@edaktik.at)
+ * @author     Luca Bösch (luca.boesch@bfh.ch)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require('../../config.php');
@@ -36,7 +39,6 @@ if($event == 's') {
 } else {
   $eventstr = 'usefancy';
 }
-
 
     /**
      * Helper method preparing the stdClass with the emoticon properties
@@ -59,7 +61,17 @@ if($event == 's') {
         );
     }
 
- function default_emoticons($e) {
+/**
+* Helper method preparing the stdClass with the emoticon properties
+*
+* @param string|array $text or array of strings
+* @param string $imagename to be used by {@link pix_emoticon}
+* @param string $altidentifier alternative string identifier, null for no alt
+* @param string $altcomponent where the alternative string is defined
+* @param string $imagecomponent to be used by {@link pix_emoticon}
+* @return stdClass
+*/
+function default_emoticons($e) {
     return array(
         prepare_emoticon_object(":-)", $e.'/smiley', 'smiley'),
         prepare_emoticon_object(":)", $e.'/smiley', 'smiley'),
@@ -99,7 +111,7 @@ if (!$confirm or !confirm_sesskey()) {
     echo $OUTPUT->header();
     echo $OUTPUT->heading(get_string('confirmation', 'admin'));
     echo $OUTPUT->confirm(get_string($eventstr, 'local_emoji'),
-        new moodle_url($PAGE->url, array('confirm' => 1)),
+            new moodle_url(new moodle_url('/local/emoji/convert.php'), array('confirm' => 1, 'id' => $event)),
         new moodle_url('/admin/settings.php', array('section' => 'local_emoji')));
     echo $OUTPUT->footer();
     die();

@@ -1,5 +1,4 @@
-	<?php
-
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,8 +17,7 @@
 /**
  * Default alternative texts for Emoji emoticon images
  *
- * @package    local
- * @subpackage emoji
+ * @package    local_emoji
  * @copyright  Moodle DevCamp 2018 {@link https://www.moodle-dach.eu}
  * @author     Andreas Grähn (andreas.graehn@edu-werkstatt.de)
  * @author     Amr Hourani (amr.hourani@id.ethz.ch)
