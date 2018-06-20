@@ -62,8 +62,6 @@ if ( $hassiteconfig ){
 
     $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'admin'), $resetlink));
 
-    $ADMIN->add('local_emoji', $settings);
-
     // Create.
     $ADMIN->add( 'localplugins', $settings );
 }

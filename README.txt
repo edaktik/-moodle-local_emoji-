@@ -5,7 +5,7 @@ This is a local plugin for Moodle 3.x that provides a custom set of SVG
 emoticons for the Moodle site. The smiley pictures have been released
 into the public domain by their author.
 
-This project has been imlementen on the Moodle DevCamp 2018
+This project has been implemented on the Moodle DevCamp 2018
 {@link https://www.moodle-dach.eu} by the following authors:
 
 Andreas Grähn (andreas.graehn@edu-werkstatt.de)
