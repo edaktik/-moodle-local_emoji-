@@ -34,7 +34,7 @@ admin_externalpage_setup('resetemoticons');
 $confirm = optional_param('confirm', false, PARAM_BOOL);
 $event = optional_param('id', 's', PARAM_RAW);
 
-if($event == 's') {
+if ($event == 's') {
     $eventstr = 'usestandard';
 } else {
     $eventstr = 'usefancy';
