@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 // This file is part of Moodle - http://moodle.org/
 //
@@ -39,26 +39,28 @@ if ( $hassiteconfig ){
     $settings = new admin_settingpage( 'local_emoji', 'Emoji' );
     
 	// standard svg
-    $standardlink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandardhead', 'local_emoji').'</a>';
-
-    $standardlink .= '<br />';
-
-    foreach($images as $value){
-        $standardlink .= '<img width="15" height="15" src="'.new moodle_url('/local/emoji/pix/s/'.$value.'.svg').'"> ';
+	
+	foreach($images as $value){
+        $standardlink = '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/s/'.$value.'.svg').'"> ';
     }
 
-    $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandard', 'local_emoji'), $standardlink));
+	$standardlink .= '<br />';
+	
+    $standardlink .= '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
+
+    $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandardhead', 'local_emoji'), $standardlink));
     
 	// fancy svg
-    $fancylink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=f').'">'.new lang_string('usefancyhead', 'local_emoji').'</a>';
-
-    $fancylink.= '<br />';
-
-    foreach($images as $value){
-        $fancylink.= '<img width="15" height="15" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
+	
+	foreach($images as $value){
+        $fancylink = '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
     }
-
-    $settings->add(new admin_setting_heading('usefancy', new lang_string('usefancy', 'local_emoji'), $fancylink));
+	
+	$fancylink. = '<br />';
+	
+    $fancylink .= '<a href="'.new moodle_url('/local/emoji/convert.php?id=f').'">'.new lang_string('usefancy', 'local_emoji').'</a>';
+ 
+    $settings->add(new admin_setting_heading('usefancy', new lang_string('usefancyhead', 'local_emoji'), $fancylink));
     
 	// reset to defaults
     $resetlink = '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'local_emoji').'</a>';
