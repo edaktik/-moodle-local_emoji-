@@ -31,55 +31,57 @@ defined('MOODLE_INTERNAL') || die();
 // Ensure the configurations for this site are set.
 if ( $hassiteconfig ){
 
-    $images = array("angry", "approve", "biggrin", "blackeye", "blush", "clown", "cool", "dead", "egg", "evil", "heart", "kiss", "martin", "mixed", "no", "sad", "shy", "sleepy", "smiley", "surprise", "thoughtful", "tongueout", "wideeyes", "wink", "yes");
+    $images = array("angry", "approve", "biggrin", "blackeye", "blush", "clown", "cool", "dead", "egg", "evil", "heart", "kiss",
+        "martin", "mixed", "no", "sad", "shy", "sleepy", "smiley", "surprise", "thoughtful", "tongueout", "wideeyes", "wink",
+        "yes");
 
     // Create the new settings page.
     $settings = new admin_settingpage( 'local_emoji', 'Emoji' );
-    
+
     // Introductory explanation that all the settings are defaults for the local_emoji.
     $settings->add(new admin_setting_heading('localemojiintro', '', get_string('localemojiintro', 'local_emoji')));
-	  
-	// standard svg
-	
-	$standardlink = '';
-	
-	foreach($images as $value){
+
+    // Standard svg.
+    $standardlink = '';
+
+    foreach ($images as $value) {
         $standardlink .= '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/s/'.$value.'.svg').'"> ';
     }
 
-	$standardlink .= '<br />';
-	
-    $standardlink .= '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
+    $standardlink .= '<br />';
 
-    $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandardhead', 'local_emoji'), $standardlink));
-    
-	// fancy svg
+    $standardlink .= '<a href="' . new moodle_url('/local/emoji/convert.php?id=s').'">' .
+        get_string('usestandard', 'local_emoji') . '</a>';
 
-	$fancylink = '';
-	
-	foreach($images as $value){
+    $settings->add(new admin_setting_heading('usestandard', get_string('usestandardhead', 'local_emoji'), $standardlink));
+
+    // Fancy svg.
+
+    $fancylink = '';
+
+    foreach ($images as $value) {
         $fancylink .= '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
     }
-	
-	$fancylink .= '<br />';
-	
-    $fancylink .= '<a href="'.new moodle_url('/local/emoji/convert.php?id=f').'">'.new lang_string('usefancy', 'local_emoji').'</a>';
- 
-    $settings->add(new admin_setting_heading('usefancy', new lang_string('usefancyhead', 'local_emoji'), $fancylink));
-    
-	// reset to defaults
 
-	$resetlink = '';
-	
-	foreach($images as $value){
+    $fancylink .= '<br />';
+
+    $fancylink .= '<a href="' . new moodle_url('/local/emoji/convert.php?id=f').'">' . get_string('usefancy', 'local_emoji') . '</a>';
+
+    $settings->add(new admin_setting_heading('usefancy', get_string('usefancyhead', 'local_emoji'), $fancylink));
+
+    // Reset to defaults.
+
+    $resetlink = '';
+
+    foreach ($images as $value) {
         $resetlink .= '<img width="32" height="32" src="'.new moodle_url('/pix/s/'.$value.'.gif').'"> ';
     }
-	
-	$resetlink .= '<br />';
-	
-    $resetlink .= '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'admin').'</a>';
 
-    $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'local_emoji'), $resetlink));
+    $resetlink .= '<br />';
+
+    $resetlink .= '<a href="resetemoticons.php">'. get_string('emoticonsreset', 'admin').'</a>';
+
+    $settings->add(new admin_setting_heading('configintro', get_string('emoticonsreset', 'local_emoji'), $resetlink));
 
     // Create.
     $ADMIN->add( 'localplugins', $settings );
