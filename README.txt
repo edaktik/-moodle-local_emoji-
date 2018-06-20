@@ -1,9 +1,14 @@
 Enjoy Emoji smilies for Moodle
 ========================
 
-This is a local plugin for Moodle 3.x that provides a custom set of SVG
-emoticons for the Moodle site. The smiley pictures have been released
-into the public domain by their author.
+This plugin for Moodle 3.x provides two sets of SVG emoticons in order to replace
+the standard GIF emoticons. It will modify the configuration in HTML Settings
+ in order to use the icons provided by this plugin by changing "image component"
+ to local_emoji and "image name" to s/name f/name or revert back to standard
+ Moodle images. If you want to create your own SVG emoticon set the sourcefiles
+ are provided as AI template files in the doc directory of this plugin.
+ The smiley pictures have been released into the public domain by their author.
+
 
 This project has been implemented on the Moodle DevCamp 2018
 {@link https://www.moodle-dach.eu} by the following authors:

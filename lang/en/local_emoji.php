@@ -29,9 +29,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Emoji';
+$string['localemojiintro'] = 'This plugin provides two sets of SVG emoticons in order to replace the standard GIF emoticons. It will modify the configuration in <a href="settings.php?section=htmlsettings" target="_blank">HTML Settings</a> in order to use the icons provided by this plugin by changing "image component" to local_emoji and "image name" to s/name f/name or revert back to standard Moodle images. If you want to create your own SVG emoticon set the sourcefiles are provided as AI template files in the doc directory of this plugin. The smiley pictures have been released into the public domain by their author.';
 $string['usestandardhead'] = 'Standard emojis in SVG format';
 $string['usestandard'] = 'Use standard SVG emojis';
 $string['usefancyhead'] = 'Fancy emojis in SVG format';
 $string['usefancy'] = 'Use fancy SVG emojis';
 $string['emoticonsreset'] = 'Reset emoticons to Moodle default GIF images';
-
