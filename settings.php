@@ -36,7 +36,7 @@ if ( $hassiteconfig ){
     $images = array("angry", "approve", "biggrin", "blackeye", "blush", "clown", "cool", "dead", "egg", "evil", "heart", "kiss", "martin", "mixed", "no", "sad", "shy", "sleepy", "smiley", "surprise", "thoughtful", "tongueout", "wideeyes", "wink", "yes");
 
     // Create the new settings page.
-    $settings = new admin_settingpage( 'local_emoji', 'emoji' );
+    $settings = new admin_settingpage( 'local_emoji', 'Emoji' );
 
     $standardlink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
 
@@ -61,8 +61,6 @@ if ( $hassiteconfig ){
     $resetlink = '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'admin').'</a>';
 
     $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'admin'), $resetlink));
-
-    $ADMIN->add('local_emoji', $settings);
 
     // Create.
     $ADMIN->add( 'localplugins', $settings );
