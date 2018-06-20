@@ -37,7 +37,8 @@ if ( $hassiteconfig ){
 
     // Create the new settings page.
     $settings = new admin_settingpage( 'local_emoji', 'Emoji' );
-
+    
+	// standard svg
     $standardlink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
 
     $standardlink .= '<br />';
@@ -47,7 +48,8 @@ if ( $hassiteconfig ){
     }
 
     $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandard', 'local_emoji'), $standardlink));
-
+    
+	// fancy svg
     $fancylink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=f').'">'.new lang_string('usefancy', 'local_emoji').'</a>';
 
     $fancylink.= '<br />';
@@ -57,8 +59,9 @@ if ( $hassiteconfig ){
     }
 
     $settings->add(new admin_setting_heading('usefancy', new lang_string('usefancy', 'local_emoji'), $fancylink));
-
-    $resetlink = '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'admin').'</a>';
+    
+	// reset to defaults
+    $resetlink = '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'local_emoji').'</a>';
 
     $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'admin'), $resetlink));
 
