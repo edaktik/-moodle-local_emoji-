@@ -24,54 +24,62 @@
  * @author     Andreas Grähn (andreas.graehn@edu-werkstatt.de)
  * @author     Amr Hourani (amr.hourani@id.ethz.ch)
  * @author     Andreas Hruska (andreas.hruska@edaktik.at)
- * @author     Loca Bösch (luca.boesch@bfh.ch)
+ * @author     Luca Bösch (luca.boesch@bfh.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
-require_once('../config.php');
-// Ensure the configurations for this site are set
-if ( $hassiteconfig ){
-    
-    $images = array("angry", "approve", "biggrin", "blackeye", "blush", "clown", "cool", "dead", "egg", "evil", "heart", "kiss", "martin", "mixed", "no", "sad", "shy", "sleepy", "smiley", "surprise", "thoughtful", "tongueout", "wideeyes", "wink", "yes");
-    
-    
-    // Create the new settings page
-    $settings = new admin_settingpage( 'local_emoji', 'Emoji' );
-    
-    $standardlink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
-    
-                   
-    $standardlink .= '<br />';
-    
-    foreach($images as $value){
-        $standardlink .= '<img width="15" height="15" src="'.new moodle_url('/local/emoji/pix/s/'.$value.'.svg').'"> ';
-    }
-            
-            
-    $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandard', 'local_emoji'), $standardlink));
-    
-    
-    $fancylink = '<a href="'.new moodle_url('/local/emoji/convert.php?id=f').'">'.new lang_string('usefancy', 'local_emoji').'</a>';
-    
-    
-    $fancylink.= '<br />';
-    
-    foreach($images as $value){
-        $fancylink.= '<img width="15" height="15" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
-    }
-    
-    
-    
-    $settings->add(new admin_setting_heading('usefancy', new lang_string('usefancy', 'local_emoji'), $fancylink));
-    
-    $resetlink = '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'admin').'</a>';
-    
-    $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'admin'), $resetlink));
-    
 
-    $ADMIN->add('local_emoji', $settings);
+// Ensure the configurations for this site are set.
+if ( $hassiteconfig ){
+
+    $images = array("angry", "approve", "biggrin", "blackeye", "blush", "clown", "cool", "dead", "egg", "evil", "heart", "kiss", "martin", "mixed", "no", "sad", "shy", "sleepy", "smiley", "surprise", "thoughtful", "tongueout", "wideeyes", "wink", "yes");
+
+    // Create the new settings page.
+    $settings = new admin_settingpage( 'local_emoji', 'Emoji' );
+	  
+	// standard svg
+	
+	$standardlink = '';
+	
+	foreach($images as $value){
+        $standardlink .= '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/s/'.$value.'.svg').'"> ';
+    }
+
+	$standardlink .= '<br />';
+	
+    $standardlink .= '<a href="'.new moodle_url('/local/emoji/convert.php?id=s').'">'.new lang_string('usestandard', 'local_emoji').'</a>';
+
+    $settings->add(new admin_setting_heading('usestandard', new lang_string('usestandardhead', 'local_emoji'), $standardlink));
     
-    // Create
+	// fancy svg
+
+	$fancylink = '';
+	
+	foreach($images as $value){
+        $fancylink .= '<img width="32" height="32" src="'.new moodle_url('/local/emoji/pix/f/'.$value.'.svg').'"> ';
+    }
+	
+	$fancylink .= '<br />';
+	
+    $fancylink .= '<a href="'.new moodle_url('/local/emoji/convert.php?id=f').'">'.new lang_string('usefancy', 'local_emoji').'</a>';
+ 
+    $settings->add(new admin_setting_heading('usefancy', new lang_string('usefancyhead', 'local_emoji'), $fancylink));
+    
+	// reset to defaults
+
+	$resetlink = '';
+	
+	foreach($images as $value){
+        $resetlink .= '<img width="32" height="32" src="'.new moodle_url('/pix/s/'.$value.'.gif').'"> ';
+    }
+	
+	$resetlink .= '<br />';
+	
+    $resetlink .= '<a href="resetemoticons.php">'.new lang_string('emoticonsreset', 'admin').'</a>';
+
+    $settings->add(new admin_setting_heading('configintro', new lang_string('emoticonsreset', 'local_emoji'), $resetlink));
+
+    // Create.
     $ADMIN->add( 'localplugins', $settings );
 }
