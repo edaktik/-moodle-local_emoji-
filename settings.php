@@ -29,7 +29,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Ensure the configurations for this site are set.
-if ( $hassiteconfig ){
+if ($hassiteconfig ) {
 
     $images = array("angry", "approve", "biggrin", "blackeye", "blush", "clown", "cool", "dead", "egg", "evil", "heart", "kiss",
         "martin", "mixed", "no", "sad", "shy", "sleepy", "smiley", "surprise", "thoughtful", "tongueout", "wideeyes", "wink",
@@ -65,7 +65,8 @@ if ( $hassiteconfig ){
 
     $fancylink .= '<br />';
 
-    $fancylink .= '<a href="' . new moodle_url('/local/emoji/convert.php?id=f').'">' . get_string('usefancy', 'local_emoji') . '</a>';
+    $fancylink .= '<a href="' . new moodle_url('/local/emoji/convert.php?id=f').'">' . get_string('usefancy', 'local_emoji') .
+        '</a>';
 
     $settings->add(new admin_setting_heading('usefancy', get_string('usefancyhead', 'local_emoji'), $fancylink));
 
