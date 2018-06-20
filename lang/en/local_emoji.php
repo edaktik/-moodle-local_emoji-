@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,8 +17,7 @@
 /**
  * Default alternative texts for Emoji emoticon images
  *
- * @package    local
- * @subpackage emoji
+ * @package    local_emoji
  * @copyright  Moodle DevCamp 2018 {@link https://www.moodle-dach.eu}
  * @author     Andreas Grähn (andreas.graehn@edu-werkstatt.de)
  * @author     Amr Hourani (amr.hourani@id.ethz.ch)
@@ -31,9 +29,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Emoji';
+$string['localemojintro'] = 'This plugin provides two sets of SVG emoticons in order to replace the standard GIF emoticons. It will modify the configuration in <a href="admin/settings.php?section=htmlsettings" target="_blank">htmlsettings</a> in order to use the icons provided in local/emoji or revert back to standard Moodle images.';
 $string['usestandardhead'] = 'Standard emojis in SVG format';
 $string['usestandard'] = 'Use standard SVG emojis';
 $string['usefancyhead'] = 'Fancy emojis in SVG format';
 $string['usefancy'] = 'Use fancy SVG emojis';
 $string['emoticonsreset'] = 'Reset emoticons to Moodle default GIF images';
-
