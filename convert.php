@@ -64,11 +64,7 @@ function prepare_emoticon_object($text, $imagename, $altidentifier = null,
 /**
  * Helper method preparing the stdClass with the emoticon properties
  *
- * @param string|array $text or array of strings
- * @param string $imagename to be used by {@link pix_emoticon}
- * @param string $altidentifier alternative string identifier, null for no alt
- * @param string $altcomponent where the alternative string is defined
- * @param string $imagecomponent to be used by {@link pix_emoticon}
+ * @param stdClass $e the event
  * @return stdClass
  */
 function default_emoticons($e) {
