@@ -29,7 +29,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Emoji';
-$string['localemojiintro'] = 'This plugin provides two sets of SVG emoticons in order to replace the standard GIF emoticons. It will modify the configuration in <a href="settings.php?section=htmlsettings" target="_blank">htmlsettings</a> in order to use the icons provided by this plugin by changing "image component" to local_emoji and "image name" to s/name f/name or revert back to standard Moodle images.';
+$string['localemojiintro'] = 'This plugin provides two sets of SVG emoticons in order to replace the standard GIF emoticons. It will modify the configuration in <a href="settings.php?section=htmlsettings" target="_blank">HTML Settings</a> in order to use the icons provided by this plugin by changing "image component" to local_emoji and "image name" to s/name f/name or revert back to standard Moodle images.';
 $string['usestandardhead'] = 'Standard emojis in SVG format';
 $string['usestandard'] = 'Use standard SVG emojis';
 $string['usefancyhead'] = 'Fancy emojis in SVG format';
