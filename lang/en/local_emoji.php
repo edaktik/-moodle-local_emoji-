@@ -30,7 +30,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['usestandard'] = 'Use Standard Emojis';
-$string['usefancy'] = 'Use Fancy Emojis';
-$string['sick'] = 'sick';
-$string['unhappy'] = 'unhappy';
+$string['pluginname'] = 'Emoji';
+$string['usestandardhead'] = 'Standard emojis in SVG format';
+$string['usestandard'] = 'Use standard emojis';
+$string['usefancyhead'] = 'Fancy emojis in SVG format';
+$string['usefancy'] = 'Use fancy emojis';
+$string['emoticonsreset'] = 'Reset emoticons to Moodle default values';
+
